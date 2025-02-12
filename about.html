@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Giftify</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        window.FontAwesomeConfig = {
+            autoReplaceSvg: 'nest',
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        .highlighted-section {
+            outline: 2px solid #3F20FB;
+            background-color: rgba(63, 32, 251, 0.1);
+        }
+
+        .edit-button {
+            position: absolute;
+            z-index: 1000;
+        }
+
+        :root {
+            /* Light theme variables */
+            --color-base: #ffffff;
+            --color-base-content: #1f2937;
+            --color-primary: #3b82f6;
+            --color-secondary: #8b5cf6;
+            --color-accent: #f472b6;
+            --color-neutral: #6b7280;
+            --color-info: #3b82f6;
+            --color-success: #10b981;
+            --color-warning: #f59e0b;
+            --color-error: #ef4444;
+        }
+
+        .dark {
+            /* Dark theme variables */
+            --color-base: #1f2937;
+            --color-base-content: #f9fafb;
+            --color-primary: #60a5fa;
+            --color-secondary: #a78bfa;
+            --color-accent: #f472b6;
+            --color-info: #60a5fa;
+            --color-success: #34d399;
+            --color-warning: #fbbf24;
+            --color-error: #f87171;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        base: {
+                            DEFAULT: 'var(--color-base)',
+                            content: 'var(--color-base-content)'
+                        },
+                        primary: {
+                            DEFAULT: 'var(--color-primary)'
+                        },
+                        secondary: {
+                            DEFAULT: 'var(--color-secondary)'
+                        },
+                        accent: {
+                            DEFAULT: 'var(--color-accent)'
+                        },
+                        info: {
+                            DEFAULT: 'var(--color-info)'
+                        },
+                        success: {
+                            DEFAULT: 'var(--color-success)'
+                        },
+                        warning: {
+                            DEFAULT: 'var(--color-warning)'
+                        },
+                        error: {
+                            DEFAULT: 'var(--color-error)'
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+
+<body class="h-full text-base-content">
+
+     <!-- Header -->
+     <header class="flex justify-between items-center px-10 py-4 shadow-md bg-white">
+        <div class="text-2xl font-bold text-red-500 flex items-center">
+            <i class="fa fa-gift mr-2"></i> GiftShop
+        </div>
+        <nav>
+            <ul class="flex space-x-6 text-gray-700">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Gift Finder</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="flex space-x-4">
+            <i class="fa fa-search text-gray-700 cursor-pointer"></i>
+            <i class="fa fa-shopping-cart text-gray-700 cursor-pointer"></i>
+        </div>
+    </header>
+    <div id="main" class="bg-gray-50">
+        <!-- Header Section -->
+        <header id="header" class="bg-gradient-to-r from-rose-500 to-rose-600 h-[400px] relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1607083206968-13611e3d76db?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80')] opacity-20 bg-cover bg-center"></div>
+            <div class="container mx-auto px-4 h-full flex items-center justify-center relative z-10">
+                <div class="text-center">
+                    <h1 class="text-5xl font-bold text-white mb-6">About Giftify</h1>
+                    <p class="text-xl text-white/90 max-w-2xl mx-auto">Creating memorable moments through thoughtfully curated gifts since 2010</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Story Section -->
+        <section id="story" class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-8">Our Story</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-12">Our journey began in a small workshop with big dreams. Today, we've grown into a beloved destination for thoughtful gifting, maintaining our commitment to quality and personalization that started it all.</p>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div class="bg-white rounded-2xl p-8 shadow-lg">
+                            <i class="fa-solid fa-gift text-4xl text-rose-500 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-3">15+ Years</h3>
+                            <p class="text-gray-600">Of spreading joy through perfect gifts</p>
+                        </div>
+                        <div class="bg-white rounded-2xl p-8 shadow-lg">
+                            <i class="fa-solid fa-heart text-4xl text-rose-500 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-3">50K+ Happy</h3>
+                            <p class="text-gray-600">Customers and counting</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section id="values" class="bg-white py-20">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-gray-900 mb-16">Our Values</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center p-8 rounded-xl bg-gray-50">
+                        <i class="fa-solid fa-star text-3xl text-rose-500 mb-6"></i>
+                        <h3 class="text-xl font-semibold mb-4">Quality First</h3>
+                        <p class="text-gray-600">We never compromise on the quality of our products</p>
+                    </div>
+                    <div class="text-center p-8 rounded-xl bg-gray-50">
+                        <i class="fa-solid fa-hand-holding-heart text-3xl text-rose-500 mb-6"></i>
+                        <h3 class="text-xl font-semibold mb-4">Personal Touch</h3>
+                        <p class="text-gray-600">Every gift is crafted with attention to detail</p>
+                    </div>
+                    <div class="text-center p-8 rounded-xl bg-gray-50">
+                        <i class="fa-solid fa-truck-fast text-3xl text-rose-500 mb-6"></i>
+                        <h3 class="text-xl font-semibold mb-4">Swift Delivery</h3>
+                        <p class="text-gray-600">Your gifts arrive on time, every time</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="py-20">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-gray-900 mb-16">Meet Our Team</h2>
+                <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <div class="text-center">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" alt="Team member" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+                        <h3 class="text-xl font-semibold">Sarah Johnson</h3>
+                        <p class="text-gray-600">Founder & Creative Director</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg" alt="Team member" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+                        <h3 class="text-xl font-semibold">Michael Chen</h3>
+                        <p class="text-gray-600">Head of Operations</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg" alt="Team member" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+                        <h3 class="text-xl font-semibold">Emily Parker</h3>
+                        <p class="text-gray-600">Customer Experience Lead</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="cta" class="bg-rose-500 py-20">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-4xl font-bold text-white mb-8">Ready to Start Gifting?</h2>
+                <p class="text-xl text-white/90 mb-12 max-w-2xl mx-auto">Join thousands of happy customers who trust us with their special moments</p>
+                <div class="flex justify-center gap-4">
+                    <a href="/shop" class="bg-white text-rose-500 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition">Browse Collection</a>
+                    <a href="/contact" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition">Contact Us</a>
+                </div>
+            </div>
+        </section>
+    </div>
+     <!-- Footer -->
+     <footer class="bg-gray-900 text-white py-10 px-10">
+        <div class="grid grid-cols-4 gap-6">
+            <div>
+                <h3 class="text-lg font-bold">GiftShop</h3>
+                <p>Making every moment special with thoughtfully curated gifts.</p>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold">Quick Links</h3>
+                <ul>
+                    <li>About Us</li>
+                    <li>Gift Finder</li>
+                    <li>Corporate Gifts</li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold">Customer Service</h3>
+                <ul>
+                    <li>Shipping Policy</li>
+                    <li>Returns & Exchanges</li>
+                    <li>FAQ</li>
+                    <li>Track Order</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold">Newsletter</h3>
+                <p>Subscribe for updates, deals, and more.</p>
+                <div class="mt-2 flex">
+                    <input type="email" placeholder="Enter your email" class="p-2 w-full rounded-l-md">
+                    <button class="bg-red-500 p-2 rounded-r-md"><i class="fa fa-paper-plane text-white"></i></button>
+                </div>
+            </div>
+        </div>
+        <p class="text-center mt-6">© 2025 GiftShop. All rights reserved.</p>
+    </footer>
+</body>
+</html>
