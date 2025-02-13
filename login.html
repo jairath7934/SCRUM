@@ -51,53 +51,78 @@
                     Sign in to access your account
                 </p>
             </div>
-            <form class="mt-8 space-y-6">
+            <form action="login.php" method="POST" class="mt-8 space-y-6" id="login-form">
                 <div class="rounded-md shadow-sm -space-y-px">
+                    <!-- Email -->
                     <div>
-                        <label for="email" class="sr-only">Email address</label>
-                        <input id="email" name="email" type="email" autocomplete="email" required 
-                            class="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-red-500 focus:border-red-500 focus:z-10 sm:text-sm"
-                            placeholder="Email address">
+                        <label for="email" class="sr-only">Email Address</label>
+                        <input id="email" name="email" type="email" autocomplete="email" required
+                            class="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-300 
+                            placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-red-500 
+                            focus:border-red-500 focus:z-10 sm:text-sm"
+                            placeholder="Email Address">
                     </div>
+            
+                    <!-- Password -->
                     <div>
                         <label for="password" class="sr-only">Password</label>
-                        <input id="password" name="password" type="password" autocomplete="current-password" required 
-                            class="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-red-500 focus:border-red-500 focus:z-10 sm:text-sm"
+                        <input id="password" name="password" type="password" autocomplete="current-password" required minlength="8"
+                            class="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-300 
+                            placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-red-500 
+                            focus:border-red-500 focus:z-10 sm:text-sm"
                             placeholder="Password">
                     </div>
                 </div>
-
+            
+                <!-- Remember Me & Forgot Password -->
                 <div class="flex items-center justify-between">
                     <div class="flex items-center">
-                        <input id="remember-me" name="remember-me" type="checkbox" 
-                            class="h-4 w-4 text-red-500 focus:ring-red-500 border-gray-300 rounded">
+                        <input id="remember-me" name="remember_me" type="checkbox"
+                            class="h-4 w-4 text-red-500 focus:ring-red-500 border-gray-300 rounded cursor-pointer">
                         <label for="remember-me" class="ml-2 block text-sm text-gray-900">
                             Remember me
                         </label>
                     </div>
                     <div class="text-sm">
-                        <a href="#" class="font-medium text-red-500 hover:text-red-600">
+                        <a href="forgot-password.php" class="font-medium text-red-500 hover:text-red-600">
                             Forgot password?
                         </a>
                     </div>
                 </div>
-
+            
+                <!-- Submit Button -->
                 <div>
-                    <button type="submit" 
-                        class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors">
+                    <button type="submit"
+                        class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium 
+                        rounded-md text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 
+                        focus:ring-red-500 transition-colors">
                         Sign In
                     </button>
                 </div>
-                
+            
+                <!-- Sign Up Link -->
                 <div class="text-center text-sm">
                     <span class="text-gray-600">Don't have an account? </span>
-                    <a href="#" class="font-medium text-red-500 hover:text-red-600">
+                    <a href="register.php" class="font-medium text-red-500 hover:text-red-600">
                         Sign up here
                     </a>
                 </div>
             </form>
+            
+          
+            
         </div>
     </main>
+
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function (e) {
+            const password = document.getElementById("password").value;
+            if (password.length < 8) {
+                e.preventDefault();
+                alert("Password must be at least 8 characters long!");
+            }
+        });
+    </script>
 
     <!-- Footer (same as other pages) -->
     <footer class="bg-gray-900 text-white py-10 px-10">
