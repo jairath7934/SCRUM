@@ -1,0 +1,305 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e53e3e;
+    display: flex;
+    align-items: center;
+}
+
+header .logo i {
+    margin-right: 10px;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #4a5568;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #e53e3e;
+}
+
+header .icons {
+    display: flex;
+    align-items: center;
+}
+
+header .icons i {
+    margin-left: 20px;
+    color: #4a5568;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+header .icons i:hover {
+    color: #e53e3e;
+}
+
+/* Hero Section Styles */
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    background-color: #fed7d7;
+}
+
+.hero-section .content {
+    max-width: 50%;
+}
+
+.hero-section h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #2d3748;
+}
+
+.hero-section p {
+    font-size: 18px;
+    color: #4a5568;
+    margin-top: 20px;
+}
+
+.hero-section .buttons {
+    margin-top: 30px;
+}
+
+.hero-section .buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hero-section .buttons .shop-now {
+    background-color: #e53e3e;
+    color: #ffffff;
+}
+
+.hero-section .buttons .shop-now:hover {
+    background-color: #c53030;
+}
+
+.hero-section .buttons .gift-finder {
+    background-color: transparent;
+    border: 2px solid #e53e3e;
+    color: #e53e3e;
+    margin-left: 20px;
+}
+
+.hero-section .buttons .gift-finder:hover {
+    background-color: #e53e3e;
+    color: #ffffff;
+}
+
+.hero-section img {
+    max-width: 40%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Shop by Occasion Styles */
+.shop-by-occasion {
+    padding: 40px;
+    background-color: #ffffff;
+}
+
+.shop-by-occasion h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2d3748;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.shop-by-occasion .occasion-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.shop-by-occasion .occasion-card {
+    background-color: #e2e8f0;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.shop-by-occasion .occasion-card:hover {
+    background-color: #cbd5e0;
+}
+
+/* Best Sellers Styles */
+.best-sellers {
+    padding: 40px;
+    background-color: #ffffff;
+}
+
+.best-sellers h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2d3748;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.best-sellers .product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.best-sellers .product-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.best-sellers .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.best-sellers .product-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.best-sellers .product-card h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.best-sellers .product-card p {
+    font-size: 16px;
+    color: #4a5568;
+    margin-top: 10px;
+}
+
+.best-sellers .product-card button {
+    background-color: #e53e3e;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.best-sellers .product-card button:hover {
+    background-color: #c53030;
+}
+
+/* Footer Styles */
+footer {
+    padding: 40px;
+    background-color: #2d3748;
+    color: #ffffff;
+}
+
+footer .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+footer h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #e53e3e;
+    margin-bottom: 15px;
+}
+
+footer p {
+    font-size: 16px;
+    color: #cbd5e0;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #cbd5e0;
+    transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+    color: #e53e3e;
+}
+
+footer .newsletter input[type="email"] {
+    width: 70%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    background-color: #4a5568;
+    color: #ffffff;
+}
+
+footer .newsletter button {
+    width: 30%;
+    padding: 10px;
+    background-color: #e53e3e;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+footer .newsletter button:hover {
+    background-color: #c53030;
+}
+
+footer .copyright {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    color: #cbd5e0;
+}

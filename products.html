@@ -11,7 +11,7 @@
             autoReplaceSvg: 'nest',
         };
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="img/min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <style>
         * {
@@ -119,8 +119,7 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-rose-600 to-rose-500 h-[400px]">
+    <section id="hero" class="bg-gradient-to-r from-rose-600 to-rose-500 h-[400px]">
         <div class="container mx-auto px-4 h-full flex flex-col justify-center items-center text-center">
             <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Discover Perfect Gifts</h1>
             <p class="text-lg text-white/90 mb-8">Find unique and thoughtful gifts for every special occasion</p>
@@ -130,11 +129,9 @@
             </div>
         </div>
     </section>
-
-    <!-- Filters Section -->
-    <section class="container mx-auto px-4 py-8">
+    <section id="filters" class="container mx-auto px-4 py-8">
         <div class="flex flex-wrap gap-4 items-center justify-between">
-            <div class="flex gap-4 flex-wrap">
+            <div class="flex gap-4">
                 <button class="px-6 py-2 bg-rose-600 text-white rounded-full">All Items</button>
                 <button class="px-6 py-2 bg-white text-gray-600 rounded-full hover:bg-gray-100">Personalized</button>
                 <button class="px-6 py-2 bg-white text-gray-600 rounded-full hover:bg-gray-100">Luxury</button>
@@ -149,13 +146,10 @@
             </select>
         </div>
     </section>
-
-    <!-- Products Grid -->
-    <section class="container mx-auto px-4 py-8">
+    <section id="products" class="container mx-auto px-4 py-8">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            <!-- Product Cards -->
             <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
-                <img class="w-full h-64 object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/adddf906a7-d9b34973ef9c5c04c1ec.png" alt="Personalized ceramic mug">
+                <img class="w-full h-64 object-cover" src="img/products/adddf906a7-d9b34973ef9c5c04c1ec.png" alt="personalized ceramic mug with floral design in soft pastel colors, lifestyle product photography" >
                 <div class="p-4">
                     <span class="text-sm text-rose-600">Personalized</span>
                     <h3 class="text-lg font-semibold mt-1">Personalized Mug</h3>
@@ -169,9 +163,51 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Repeat similar product cards with different content -->
-            <!-- Additional product cards here -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                <img class="w-full h-64 object-cover" src="img/products/0af39188f6-1378f05b24c7c54d6931.png" alt="luxury gift box set with gold ribbons and premium packaging, elegant product photography" >
+                <div class="p-4">
+                    <span class="text-sm text-rose-600">Luxury</span>
+                    <h3 class="text-lg font-semibold mt-1">Gift Box Set</h3>
+                    <p class="text-gray-500 text-sm mt-1">Luxury gift collection</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-xl font-bold">$40.00</span>
+                        <button class="bg-rose-600 text-white px-4 py-2 rounded-lg flex items-center gap-2">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                <img class="w-full h-64 object-cover" src="img/products/5824e7a5fd-e37f712eb5b32b84d047.png" alt="handmade delicate necklace with crystal pendant, minimalist jewelry photography" >
+                <div class="p-4">
+                    <span class="text-sm text-rose-600">Jewelry</span>
+                    <h3 class="text-lg font-semibold mt-1">Handmade Necklace</h3>
+                    <p class="text-gray-500 text-sm mt-1">Elegant crystal pendant</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-xl font-bold">$30.00</span>
+                        <button class="bg-rose-600 text-white px-4 py-2 rounded-lg flex items-center gap-2">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                <img class="w-full h-64 object-cover" src="img/products/4c085f08a0-939d12e6539068e9d177.png" alt="customized metal keychain with engraved design, modern product photography" >
+                <div class="p-4">
+                    <span class="text-sm text-rose-600">Personalized</span>
+                    <h3 class="text-lg font-semibold mt-1">Customized Keychain</h3>
+                    <p class="text-gray-500 text-sm mt-1">Engraved with love</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-xl font-bold">$10.00</span>
+                        <button class="bg-rose-600 text-white px-4 py-2 rounded-lg flex items-center gap-2">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            Add
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
