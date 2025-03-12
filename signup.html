@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GiftShop - Sign Up</title>
+    <title>Giftify Home</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         window.FontAwesomeConfig = {
@@ -11,40 +12,126 @@
         };
     </script>
     <script src="img/min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <style>
         * {
             font-family: sans-serif;
         }
-        select {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-            background-position: right 0.5rem center;
-            background-repeat: no-repeat;
-            background-size: 1.5em 1.5em;
-            --webkit-print-color-adjust: exact;
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        .highlighted-section {
+            outline: 2px solid #3F20FB;
+            background-color: rgba(63, 32, 251, 0.1);
+        }
+
+        .edit-button {
+            position: absolute;
+            z-index: 1000;
+        }
+
+        :root {
+            /* Light theme variables */
+            --color-base: #ffffff;
+            --color-base-content: #1f2937;
+            --color-primary: #3b82f6;
+            --color-secondary: #8b5cf6;
+            --color-accent: #f472b6;
+            --color-neutral: #6b7280;
+            --color-info: #3b82f6;
+            --color-success: #10b981;
+            --color-warning: #f59e0b;
+            --color-error: #ef4444;
+        }
+
+        .dark {
+            /* Dark theme variables */
+            --color-base: #1f2937;
+            --color-base-content: #f9fafb;
+            --color-primary: #60a5fa;
+            --color-secondary: #a78bfa;
+            --color-accent: #f472b6;
+            --color-info: #60a5fa;
+            --color-success: #34d399;
+            --color-warning: #fbbf24;
+            --color-error: #f87171;
         }
     </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        base: {
+                            DEFAULT: 'var(--color-base)',
+                            content: 'var(--color-base-content)'
+                        },
+                        primary: {
+                            DEFAULT: 'var(--color-primary)'
+                        },
+                        secondary: {
+                            DEFAULT: 'var(--color-secondary)'
+                        },
+                        accent: {
+                            DEFAULT: 'var(--color-accent)'
+                        },
+                        info: {
+                            DEFAULT: 'var(--color-info)'
+                        },
+                        success: {
+                            DEFAULT: 'var(--color-success)'
+                        },
+                        warning: {
+                            DEFAULT: 'var(--color-warning)'
+                        },
+                        error: {
+                            DEFAULT: 'var(--color-error)'
+                        }
+                    }
+                }
+            }
+        };
+    </script>
 </head>
 
-<body class="h-full text-base-content bg-gray-50">
-    <!-- Header -->
-    <header class="flex justify-between items-center px-10 py-4 shadow-md bg-white">
+<body class="h-full text-base-content">
+
+     <!-- Header -->
+     <header class="flex justify-between items-center px-10 py-4 shadow-md bg-white">
         <div class="text-2xl font-bold text-red-500 flex items-center">
             <i class="fa fa-gift mr-2"></i> GiftShop
         </div>
         <nav>
             <ul class="flex space-x-6 text-gray-700">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
                 <li><a href="products.html">Products</a></li>
-                <li><a href="#">Gift Finder</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
             </ul>
         </nav>
         <div class="flex space-x-4">
-            <i class="fa fa-search text-gray-700 cursor-pointer"></i>
-            <i class="fa fa-shopping-cart text-gray-700 cursor-pointer"></i>
-        </div>
-    </header>
+          <!-- Search Icon -->
+          <i class="fa fa-search text-gray-700 cursor-pointer" onclick="searchFunction()"></i>
+          <!-- Cart Button -->
+          <a href="cart.html">
+              <i class="fa fa-shopping-cart text-gray-700 cursor-pointer"></i>
+          </a>
+      </div>
+  </header>
+  
+  <script>
+      function searchFunction() {
+          let query = prompt("Enter your search query:");
+          if (query) {
+              window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+          }
+      }
+  </script>
 
     <!-- Signup Form -->
     <main class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">

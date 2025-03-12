@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Giftify</title>
+    <title>Giftify Home</title>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -107,17 +107,31 @@
         <nav>
             <ul class="flex space-x-6 text-gray-700">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
                 <li><a href="products.html">Products</a></li>
-                <li><a href="#">Gift Finder</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
             </ul>
         </nav>
         <div class="flex space-x-4">
-            <i class="fa fa-search text-gray-700 cursor-pointer"></i>
-            <i class="fa fa-shopping-cart text-gray-700 cursor-pointer"></i>
-        </div>
-    </header>
+          <!-- Search Icon -->
+          <i class="fa fa-search text-gray-700 cursor-pointer" onclick="searchFunction()"></i>
+          <!-- Cart Button -->
+          <a href="cart.html">
+              <i class="fa fa-shopping-cart text-gray-700 cursor-pointer"></i>
+          </a>
+      </div>
+  </header>
+  
+  <script>
+      function searchFunction() {
+          let query = prompt("Enter your search query:");
+          if (query) {
+              window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+          }
+      }
+  </script>
     <div id="main" class="bg-gray-50">
         <!-- Header Section -->
         <header id="header" class="bg-gradient-to-r from-rose-500 to-rose-600 h-[400px] relative overflow-hidden">

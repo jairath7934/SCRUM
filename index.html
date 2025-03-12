@@ -107,17 +107,31 @@
         <nav>
             <ul class="flex space-x-6 text-gray-700">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
                 <li><a href="products.html">Products</a></li>
-                <li><a href="#">Gift Finder</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
             </ul>
         </nav>
         <div class="flex space-x-4">
-            <i class="fa fa-search text-gray-700 cursor-pointer"></i>
-            <i class="fa fa-shopping-cart text-gray-700 cursor-pointer"></i>
-        </div>
-    </header>
+          <!-- Search Icon -->
+          <i class="fa fa-search text-gray-700 cursor-pointer" onclick="searchFunction()"></i>
+          <!-- Cart Button -->
+          <a href="cart.html">
+              <i class="fa fa-shopping-cart text-gray-700 cursor-pointer"></i>
+          </a>
+      </div>
+  </header>
+  
+  <script>
+      function searchFunction() {
+          let query = prompt("Enter your search query:");
+          if (query) {
+              window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+          }
+      }
+  </script>
     <main id="main" class="pt-20">
       <section id="hero" class="relative h-[600px] bg-gradient-to-r from-rose-50 to-rose-100">
           <div class="container mx-auto px-4 h-full flex items-center">
@@ -190,9 +204,11 @@
           <div class="container mx-auto px-4">
             <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">Best Sellers</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              
+              <!-- Luxury Gift Box -->
               <div class="bg-white rounded-xl shadow-sm overflow-hidden group">
                 <div class="relative">
-                  <img class="w-full h-64 object-cover" src="img/luxarygiftbox.png" alt="luxury gift box with gold ribbon, professional product photography" >
+                  <img class="w-full h-64 object-cover" src="img/luxarygiftbox.png" alt="Luxury Gift Box">
                   <button class="absolute top-4 right-4 bg-white rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity">
                     <i class="fa-regular fa-heart text-rose-500"></i>
                   </button>
@@ -201,23 +217,25 @@
                   <h4 class="font-semibold text-lg">Luxury Gift Box</h4>
                   <div class="flex items-center mt-2">
                     <div class="flex text-yellow-400">
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star-half-stroke"></i>
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
                     </div>
                     <span class="text-sm text-gray-500 ml-2">(4.5)</span>
                   </div>
                   <div class="flex items-center justify-between mt-4">
                     <span class="text-xl font-bold text-gray-800">$49.99</span>
-                    <button class="px-4 py-2 bg-rose-500 text-white rounded-lg hover:bg-rose-600">Add to Cart</button>
+                    <button class="add-to-cart px-4 py-2 bg-rose-500 text-white rounded-lg hover:bg-rose-600"
+                      data-id="1" data-name="Luxury Gift Box" data-price="49.99" data-image="img/luxarygiftbox.png">
+                      <i class="fa-solid fa-cart-plus"></i> Add
+                    </button>
                   </div>
                 </div>
               </div>
+        
+              <!-- Photo Frame Set -->
               <div class="bg-white rounded-xl shadow-sm overflow-hidden group">
                 <div class="relative">
-                  <img class="w-full h-64 object-cover" src="img/photoframeset.png" alt="personalized photo frame gift set, modern design" >
+                  <img class="w-full h-64 object-cover" src="img/photoframeset.png" alt="Photo Frame Set">
                   <button class="absolute top-4 right-4 bg-white rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity">
                     <i class="fa-regular fa-heart text-rose-500"></i>
                   </button>
@@ -226,23 +244,25 @@
                   <h4 class="font-semibold text-lg">Photo Frame Set</h4>
                   <div class="flex items-center mt-2">
                     <div class="flex text-yellow-400">
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
                     </div>
                     <span class="text-sm text-gray-500 ml-2">(4.0)</span>
                   </div>
                   <div class="flex items-center justify-between mt-4">
                     <span class="text-xl font-bold text-gray-800">$39.99</span>
-                    <button class="px-4 py-2 bg-rose-500 text-white rounded-lg hover:bg-rose-600">Add to Cart</button>
+                    <button class="add-to-cart px-4 py-2 bg-rose-500 text-white rounded-lg hover:bg-rose-600"
+                      data-id="2" data-name="Photo Frame Set" data-price="39.99" data-image="img/photoframeset.png">
+                      <i class="fa-solid fa-cart-plus"></i> Add
+                    </button>
                   </div>
                 </div>
               </div>
+        
+              <!-- Scented Candle Set -->
               <div class="bg-white rounded-xl shadow-sm overflow-hidden group">
                 <div class="relative">
-                  <img class="w-full h-64 object-cover" src="img/candle.png" alt="scented candle gift set with premium packaging" >
+                  <img class="w-full h-64 object-cover" src="img/candle.png" alt="Scented Candle Set">
                   <button class="absolute top-4 right-4 bg-white rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity">
                     <i class="fa-regular fa-heart text-rose-500"></i>
                   </button>
@@ -251,23 +271,25 @@
                   <h4 class="font-semibold text-lg">Scented Candle Set</h4>
                   <div class="flex items-center mt-2">
                     <div class="flex text-yellow-400">
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
                     <span class="text-sm text-gray-500 ml-2">(5.0)</span>
                   </div>
                   <div class="flex items-center justify-between mt-4">
                     <span class="text-xl font-bold text-gray-800">$29.99</span>
-                    <button class="px-4 py-2 bg-rose-500 text-white rounded-lg hover:bg-rose-600">Add to Cart</button>
+                    <button class="add-to-cart px-4 py-2 bg-rose-500 text-white rounded-lg hover:bg-rose-600"
+                      data-id="3" data-name="Scented Candle Set" data-price="29.99" data-image="img/candle.png">
+                      <i class="fa-solid fa-cart-plus"></i> Add
+                    </button>
                   </div>
                 </div>
               </div>
+        
+              <!-- Gourmet Chocolate Box -->
               <div class="bg-white rounded-xl shadow-sm overflow-hidden group">
                 <div class="relative">
-                  <img class="w-full h-64 object-cover" src="img/choc.png" alt="gourmet chocolate gift box with elegant packaging" >
+                  <img class="w-full h-64 object-cover" src="img/choc.png" alt="Gourmet Chocolate Box">
                   <button class="absolute top-4 right-4 bg-white rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity">
                     <i class="fa-regular fa-heart text-rose-500"></i>
                   </button>
@@ -276,23 +298,26 @@
                   <h4 class="font-semibold text-lg">Gourmet Chocolate Box</h4>
                   <div class="flex items-center mt-2">
                     <div class="flex text-yellow-400">
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star-half-stroke"></i>
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
                     </div>
                     <span class="text-sm text-gray-500 ml-2">(4.5)</span>
                   </div>
                   <div class="flex items-center justify-between mt-4">
                     <span class="text-xl font-bold text-gray-800">$34.99</span>
-                    <button class="px-4 py-2 bg-rose-500 text-white rounded-lg hover:bg-rose-600">Add to Cart</button>
+                    <button class="add-to-cart px-4 py-2 bg-rose-500 text-white rounded-lg hover:bg-rose-600"
+                      data-id="4" data-name="Gourmet Chocolate Box" data-price="34.99" data-image="img/choc.png">
+                      <i class="fa-solid fa-cart-plus"></i> Add
+                    </button>
                   </div>
                 </div>
               </div>
+        
             </div>
           </div>
         </section>
+        <script src="js/products.js"></script>
+                
         <section id="personalization" class="py-20">
           <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row items-center gap-12">
