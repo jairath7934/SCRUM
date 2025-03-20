@@ -118,9 +118,12 @@
           <!-- Search Icon -->
           <i class="fa fa-search text-gray-700 cursor-pointer" onclick="searchFunction()"></i>
           <!-- Cart Button -->
-          <a href="cart.html">
-              <i class="fa fa-shopping-cart text-gray-700 cursor-pointer"></i>
-          </a>
+          <a href="cart.php" class="relative">
+            <i class="fa fa-shopping-cart text-gray-700"></i>
+            <span class="cart-count absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                <?= array_sum(array_column($_SESSION['cart'] ?? [], 'quantity')) ?>
+            </span>
+        </a>
       </div>
   </header>
   
@@ -210,9 +213,8 @@
 });
     </script>
 
-<script>   
-
-// Add to Cart functionality
+<script>    
+ // Add to Cart functionality
 document.addEventListener("click", function(e) {
     if (e.target.closest('.add-to-cart')) {
         const productId = e.target.closest('.add-to-cart').dataset.productId;
@@ -230,18 +232,65 @@ async function addToCart(productId) {
             body: JSON.stringify({ productId })
         });
 
+        // First check if response is JSON
+        const contentType = response.headers.get("content-type");
+        if (!contentType || !contentType.includes("application/json")) {
+            const text = await response.text();
+            throw new Error(`Invalid response: ${text.substring(0, 100)}`);
+        }
+
         const result = await response.json();
+        
         if (!result.success) throw new Error(result.message);
         
         alert('Product added to cart!');
+        // Optional: Update cart counter
+        // document.querySelector('.cart-count').textContent = result.cartCount;
+
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Cart Error:', error);
         alert('Failed to add to cart: ' + error.message);
     }
 }
 
-</script>
+async function updateCartItem(productId, quantity) {
+    try {
+        const response = await fetch("update-cart.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                productId: productId,
+                quantity: quantity
+            })
+        });
 
+        const result = await response.json();
+        if (!result.success) throw new Error(result.message);
+        
+        // Update UI elements
+        document.querySelectorAll('.cart-total').forEach(el => {
+            el.textContent = `$${result.cartTotal}`;
+        });
+        
+        document.querySelectorAll('.cart-count').forEach(el => {
+            el.textContent = result.cartCount;
+        });
+
+        // Remove item row if quantity is 0
+        if (quantity === 0) {
+            document.querySelector(`[data-product-id="${productId}"]`).remove();
+        }
+
+    } catch (error) {
+        console.error('Update Error:', error);
+        alert('Failed to update cart: ' + error.message);
+    }
+}
+
+
+</script>
    <!-- Footer -->
    <footer class="bg-gray-900 text-white py-10 px-10">
     <div class="grid grid-cols-4 gap-6">

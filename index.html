@@ -118,9 +118,12 @@
           <!-- Search Icon -->
           <i class="fa fa-search text-gray-700 cursor-pointer" onclick="searchFunction()"></i>
           <!-- Cart Button -->
-          <a href="cart.html">
-              <i class="fa fa-shopping-cart text-gray-700 cursor-pointer"></i>
-          </a>
+          <a href="cart.php" class="relative">
+            <i class="fa fa-shopping-cart text-gray-700"></i>
+            <span class="cart-count absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                <?= array_sum(array_column($_SESSION['cart'] ?? [], 'quantity')) ?>
+            </span>
+        </a>
       </div>
   </header>
   
