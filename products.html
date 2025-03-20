@@ -210,6 +210,38 @@
 });
     </script>
 
+<script>   
+
+// Add to Cart functionality
+document.addEventListener("click", function(e) {
+    if (e.target.closest('.add-to-cart')) {
+        const productId = e.target.closest('.add-to-cart').dataset.productId;
+        addToCart(productId);
+    }
+});
+
+async function addToCart(productId) {
+    try {
+        const response = await fetch("add-to-cart.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ productId })
+        });
+
+        const result = await response.json();
+        if (!result.success) throw new Error(result.message);
+        
+        alert('Product added to cart!');
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Failed to add to cart: ' + error.message);
+    }
+}
+
+</script>
+
    <!-- Footer -->
    <footer class="bg-gray-900 text-white py-10 px-10">
     <div class="grid grid-cols-4 gap-6">
