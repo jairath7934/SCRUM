@@ -1,6 +1,8 @@
 <?php
 session_start();
 require_once 'config.php';
+require 'auth_check.php';
+require 'header.php';
 
 if (empty($_SESSION['cart']) || !isset($_SESSION['customer_id'])) {
     header('Location: cart.php');

@@ -1,6 +1,8 @@
 <?php
 session_start();
 require_once 'config.php';
+require 'auth_check.php';
+require 'header.php';
 
 // Redirect if cart is empty
 if (empty($_SESSION['cart'])) {
@@ -36,7 +38,7 @@ $total = $subtotal + $tax + $shipping;
 <body class="bg-gray-100">
     <!-- Header -->
     <header class="bg-white shadow-md">
-        <!-- Same header as other pages -->
+        
     </header>
 
     <main class="container mx-auto px-4 py-8">

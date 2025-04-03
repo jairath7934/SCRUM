@@ -51,12 +51,12 @@ $total = $subtotal + $tax + $shipping;
             <i class="fa fa-gift mr-2"></i> GiftShop
         </div>
         <nav>
-            <ul class="flex space-x-6 text-gray-700">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
+        <ul class="flex space-x-6 text-gray-700">
+                <li><a href="index.php">Home</a></li>
+                <li><a href="products.php">Products</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="login.php">Login</a></li>
                 <li><a href="signup.html">Sign Up</a></li>
             </ul>
         </nav>

@@ -106,22 +106,25 @@
         </div>
         <nav>
             <ul class="flex space-x-6 text-gray-700">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="products.php">Products</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="login.php">Login</a></li>
                 <li><a href="signup.html">Sign Up</a></li>
             </ul>
         </nav>
         <div class="flex space-x-4">
-          <!-- Search Icon -->
-          <i class="fa fa-search text-gray-700 cursor-pointer" onclick="searchFunction()"></i>
-          <!-- Cart Button -->
-          <a href="cart.html">
-              <i class="fa fa-shopping-cart text-gray-700 cursor-pointer"></i>
+            <!-- Search Icon -->
+            <i class="fa fa-search text-gray-700 cursor-pointer" onclick="searchFunction()"></i>
+            <!-- Cart Button -->
+            <a href="cart.php" class="relative">
+              <i class="fa fa-shopping-cart text-gray-700"></i>
+              <span class="cart-count absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  <?= array_sum(array_column($_SESSION['cart'] ?? [], 'quantity')) ?>
+              </span>
           </a>
-      </div>
+        </div>
   </header>
   
   <script>
